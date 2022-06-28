@@ -1,0 +1,186 @@
+/* border-box all */
+*{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+html{
+    font-size: 62.5%;
+}
+
+/* ========= layout ========== */
+.body{
+    display: flex;
+    justify-content: center;
+
+}
+.mainContainer{
+
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    width: 100vw;
+}
+.middleArea{
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+}
+.horizontalLine{
+    height:7.5vh;
+    width: 80vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  
+}
+
+
+
+.course{
+    width:90%;
+    height: 60%;
+    border: 1px black solid;
+    background-color: white;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.semester{
+    flex:1;
+}
+.summer{
+    flex:0.5;
+}
+.filler{
+    margin-left: 10px;
+    width:90%;
+    height: 60%;
+    background-color: white;
+}
+.info{
+    margin-bottom: 15px;
+    width:90%;
+    height: 40%;
+    background-color: white;
+    margin-left: 10px;
+}
+
+aside{
+    margin-left: 5px;
+    width: 17.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 2px solid grey;
+    flex-direction: column;
+}
+aside > *{
+    margin-left: 5%;
+}
+form{
+    margin-bottom: 20px;
+}
+
+/*========================= specifc layouts ==================== */
+
+/* ===============  styles      ================= */
+
+div h2{
+    font-size: 1.6rem;
+    text-align: center;
+}
+li{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.borderTop{
+    border-top: 2px solid grey;
+}
+.borderBot{
+    padding-bottom: 10px;
+    border-bottom: 2px solid gray;
+}
+
+.appendexColor{
+    display: inline-block;
+    height: 20px;
+    width: 40px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+.black{
+    background-color: black;
+}
+.white{
+    background-color: white;
+
+}
+.blue{
+    background-color: rgb(142, 202, 230);
+
+   
+}
+.cyan{
+    background-color: rgb(33, 158, 188);
+
+   
+}
+.yellow{
+    background-color: rgb(255, 183, 3);
+
+   
+}
+
+/* phones */
+@media screen and (max-width :480px ) {
+    *{
+        font-size: 1rem;
+    }
+    div h2 {
+        font-size: 1rem;
+    }
+    .course{
+        width: 100%;
+        margin-left: 1px;
+    }
+    .filler{
+        display: none;
+    }
+    #years{
+        font-size: 0.8rem;
+    }
+
+
+}
+/* iPades */
+@media screen and (min-width :481px ) {
+    *{
+        font-size: 1.1rem;
+    }
+    div h2 {
+        font-size: 1.1rem;
+    }
+
+
+
+
+}
+/* big screens */
+@media screen and (min-width :800px ) {
+    *{
+        font-size: 1.6rem;
+    }
+    div h2 {
+        font-size: 1.6rem;
+    }
+
+
+}
