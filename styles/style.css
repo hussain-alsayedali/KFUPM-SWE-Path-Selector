@@ -50,7 +50,7 @@ html{
     margin-left: 10px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     border-radius: 4px;
 }
 .semester{
@@ -95,7 +95,11 @@ form{
 
 div h2{
     font-size: 1.6rem;
+    width: 70%;
     text-align: center;
+}
+.course span{
+    color: rgb(170, 5, 5);
 }
 li{
     font-size: 18px;
@@ -129,7 +133,7 @@ li{
    
 }
 .cyan{
-    background-color: rgb(33, 158, 188);
+    background-color: rgb(2, 195, 154);
 
    
 }
@@ -138,7 +142,10 @@ li{
 
    
 }
-
+.fourPoints{}
+.threePoints{}
+.twoPoints{}
+.onePoint{}
 /* phones */
 @media screen and (max-width :480px ) {
     *{
@@ -149,7 +156,10 @@ li{
     }
     .course{
         width: 100%;
+        height: 90%;
         margin-left: 1px;
+        flex-direction: column;
+
     }
     .filler{
         display: none;
