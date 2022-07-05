@@ -110,3 +110,8 @@ function checkForHours(course , from , to){
     console.log(`from = ${from} to = ${to}`)
     return [from , to]
 }
+
+document.querySelector('#tutorialButton').addEventListener('click',hideContent =>{
+    document.querySelector('.tutorial').style.display = 'none'
+
+})
