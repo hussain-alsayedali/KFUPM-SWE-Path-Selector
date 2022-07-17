@@ -144,6 +144,9 @@ div h2{
 
     text-align: center;
 }
+.info h2{
+    width: 100%;
+}
 .course span{
     color: rgb(170, 5, 5);
 }

@@ -1,3 +1,6 @@
+
+
+
 const courses = document.querySelectorAll('.course')
 
 let colors = ['rgb(255, 255, 255)' , 'rgb(0, 0, 0)' , 'rgb(142, 202, 230)' , 'rgb(2, 195, 154)'  , 'rgb(255, 183, 3)']
@@ -115,3 +118,17 @@ document.querySelector('#tutorialButton').addEventListener('click',hideContent =
     document.querySelector('.tutorial').style.display = 'none'
 
 })
+
+
+let imgbutton = document.querySelector('#exportImg')
+
+imgbutton.addEventListener('click' ,_ =>{
+
+
+    html2canvas(document.body).then((canvas) => {
+        let a = document.createElement("a");
+        a.download = "ss.png";
+        a.href = canvas.toDataURL("image/png");
+        a.click();
+      }); 
+  });
