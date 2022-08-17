@@ -1,0 +1,210 @@
+/* layouts */
+*{
+    box-sizing: border-box;
+}
+section{
+    height: 100%;
+}
+
+.gridContainer{
+    display: grid;
+    width: 80%;
+    height: 100%;
+    grid-template-columns: repeat(9,1fr);
+    grid-template-rows: repeat(9,1fr);
+
+    gap: 5px;
+    grid-template-areas: 
+    'freshman freshman sophmore sophmore junior  junior   summer   senior   senior'
+    'math101  math102  math201  math208  stat319 swe363   swe399   xxx1     xxx2'
+    'eng101   eng102   ise291   coe292   filler1 eng214   filler2  xxx3     xxx4'
+    'pe101    filler3  swe206   swe216   swe316  filler4  filler5  swe439   filler6'
+    'ics104   ics108   ics202   ics253   ics321  swe326   filler7  filler8  filler9'
+    'filler10 filler11 filler12 filler13 ics343  ics344   filler14 swe411   swe412'
+    'phys101  phys102  chem101  coe233   swe387  cgs392   filler15 filler16 ics433'
+    'ias121   ias111   ias212   filler17 bus200  filler18 iasxxx   gsxxx    filler19'
+    'termH1   termH2   termH3   termH4   termH5  termH6   termH7   termH8   termH9'
+    'appendex appendex appendex appendex appendex appendex appendex appendex appendex ';
+    
+    
+}
+/* styles */
+.course{
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sem{
+    border-bottom: 10px solid cyan;
+}
+span{text-align: center;}
+h2{text-align: center;}
+
+
+
+
+
+
+
+
+
+
+
+/* grid Areas */
+#mainImg{grid-area:mainImg ;}
+/*  */
+#freshman{grid-area:freshman ;}
+#sophmore{grid-area:sophmore ;}
+#junior{grid-area: junior ;}
+#summer{grid-area:summer ;}
+#senior{grid-area: senior ;}
+/*  */
+#math101{grid-area: math101;}
+#math102{grid-area: math102 ;}
+#math201{grid-area: math201;}
+#math208{grid-area: math208;}
+#stat319{grid-area: stat319 ;}
+#swe363{grid-area:swe363 ;}
+#swe399{grid-area:swe399 ;}
+#xxx1{grid-area:xxx1 ;}
+#xxx2{grid-area:xxx2 ;}
+/*  */
+#eng101{grid-area:eng101 ;}
+#eng102{grid-area:eng102 ;}
+#ise291{grid-area:ise291 ;}
+#coe292{grid-area:coe292 ;}
+#filler1{grid-area: filler1}
+#eng214{grid-area:eng214 ;}
+#filler2{grid-area: filler2}
+#xxx3{grid-area:xxx3 ;}
+#xxx4{grid-area:xxx4 ;}
+/*  */
+#pe101{grid-area:pe101 ;}
+#filler3{grid-area: filler3}
+#swe206{grid-area:swe206 ;}
+#swe216{grid-area:swe216 ;}
+#swe316{grid-area:swe316 ;}
+#filler4{grid-area: filler4;}
+#filler5{grid-area: filler5;}
+#swe439{grid-area: swe439 ;}
+#filler6{grid-area: filler6;}
+/*  */
+#ics104{grid-area:ics104 ;}
+#ics108{grid-area:ics108 ;}
+#ics202{grid-area:ics202;}
+#ics253{grid-area:ics253 ;}
+#ics321{grid-area:ics321 ;}
+#swe326{grid-area:swe326 ;}
+#filler7{grid-area: filler7;}
+#filler8{grid-area: filler8;}
+#filler9{grid-area: filler9;}
+
+/*  */
+#filler10{grid-area: filler10;}
+#filler11{grid-area: filler11;}
+#filler12{grid-area: filler12;}
+#filler13{grid-area: filler13;}
+#ics343{grid-area:ics343 ;}
+#ics344{grid-area:ics344 ;}
+#filler14{grid-area: filler14;}
+#swe411{grid-area:swe411 ;}
+#swe412{grid-area:swe412 ;}
+/*  */
+
+#phys101{grid-area: phys101 ;}
+#phys102{grid-area: phys102;}
+#chem101{grid-area:chem101 ;}
+#coe233{grid-area:coe233 ;}
+#swe387{grid-area: swe387 ;}
+#cgs392{grid-area: cgs392;}
+#filler15{grid-area: filler15;}
+#filler16{grid-area: filler16;}
+#ics433{grid-area: ics433;}
+/*  */
+#ias121{grid-area:ias121 ;}
+#ias111{grid-area:ias111 ;}
+#ias212{grid-area:ias212 ;}
+#filler17{grid-area: filler17;}
+#bus200{grid-area: bus200 ;}
+#filler18{grid-area: filler18;}
+#iasxxx{grid-area:iasxxx ;}
+#gsxxx{grid-area: gsxxx;}
+#filler19{grid-area: filler19;}
+
+/*  */
+#termH1{grid-area: termH1;}
+#termH2{grid-area: termH2;}
+#termH3{grid-area: termH3;}
+#termH4{grid-area: termH4;}
+#termH5{grid-area: termH5;}
+#termH6{grid-area: termH6;}
+#termH7{grid-area: termH7;}
+#termH8{grid-area: termH8;}
+#termH9{grid-area: termH9;}
+
+
+#appendex{grid-area: appendex;}
+
+
+
+
+@media screen and (max-width :640px ) {
+
+
+    .gridContainer{
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: auto;
+        height: 1fr;
+        grid-template-areas: 
+        'freshman freshman'
+        'math101  math102'
+        'eng101   eng102'
+        'pe101    filler3'
+        'ics104   ics108'
+        'phys101  phys102'       
+        'ias121   ias111'
+        'termH1   termH2'
+        'sophmore sophmore'
+        'math201  math208'
+        'ise291   coe292'
+        'swe206   swe216'
+        'ics202   ics253'
+        'filler12 filler13'
+        'chem101  coe233'
+        'ias212   filler17'
+        'termH3   termH4'
+        'junior   junior'        
+        'stat319  swe363'
+        'filler1  eng214'
+        'swe316   filler4'
+        'ics321   swe326'
+        'ics343   ics344'
+        'swe387   cgs392'
+        'bus200   filler18'
+        'termH5   termH6'
+        'summer   summer'
+        'swe399   swe399'
+        'iasxxx   iasxxx'
+        'termH7   termH7'
+        'senior   senior'
+        'xxx1     xxx2'        
+        'xxx3     xxx4'
+        'swe439   filler6'
+        'filler8  filler9'
+        'swe411   swe412'
+        'filler16 ics433'
+        'gsxxx    filler19'
+        'termH8   termH9'
+        'appendex appendex';
+    
+    };
+
+
+}
+
+
+
+
+
