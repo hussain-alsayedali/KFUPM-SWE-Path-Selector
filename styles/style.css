@@ -39,7 +39,7 @@ html{
     'ics104   ics108   ics202   ics253   ics321  swe326   filler7  filler8  filler9'
     'filler10 filler11 filler12 filler13 ics343  ics344   filler14 swe411   swe412'
     'phys101  phys102  chem101  coe233   swe387  cgs392   filler15 filler16 ics433'
-    'ias121   ias111   ias212   filler17 bus200  filler18 iasxxx   gsxxx    filler19'
+    'ias121   ias111   ias212   filler17 bus200  filler18 filler19 iasxxx   gsxxx  '
     'termH1   termH2   termH3   termH4   termH5  termH6   termH7   termH8   termH9'
     'appendex appendex appendex appendex appendex appendex appendex appendex appendex ';
 }
@@ -423,12 +423,17 @@ li{
     div h2 {
         font-size: 1rem;
     }
+    .info h2  {
+        font-size: 1.4rem;
+    }
 
-
+    html{
+        font-size: 40%;
+    }
     
     #years{
-        font-size: 0.8rem;
-    }
+        font-size: 1.4rem;
+    } */
     .tutorial > h1 , .tutorial > h2 {
         font-size: 1.4rem;
     }
@@ -446,7 +451,7 @@ li{
         border-radius: 4px;
     }
     .button-23{
-        font-size:1rem ;
+        font-size:1.5rem ;
     }
 
 }
