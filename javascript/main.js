@@ -5,10 +5,10 @@ const courses = document.querySelectorAll('.course')
 const courseText = Array.from(courses).map(x=> x.querySelector('h2').innerText)
 
 
-let coursePdfHour = Array.from(courses).find(x=> x.querySelector('h2').innerText === 'Math 101') 
-
+// colors of the courses when clicked
 let colors = ['rgb(255, 255, 255)' , 'rgb(181, 126, 220)' , 'rgb(142, 202, 230)' , 'rgb(2, 195, 154)'  , 'rgb(255, 183, 3)']
 
+// hours to display on the dom
 let hours  ={
     notYetHours:128,
     finishedHours:0,
@@ -17,6 +17,7 @@ let hours  ={
     thirdTermHours:0,
 }
 
+// pdf courses print 
 let coursesSelected = {
     notYetCourses :[],
     finishedCourses : [],
@@ -26,13 +27,17 @@ let coursesSelected = {
 }
 coursesSelected['notYetCourses'] = courseText
 
+// split the output from the function
 let two = []
+
+// hours display in the dom
 const notYetH = document.querySelector('.notYetH')
 const finishedH = document.querySelector('.finishedH')
 const firstTermH = document.querySelector('.firstTermH')
 const secondeTermH = document.querySelector('.secondTermH')
 const thirdTermH = document.querySelector('.thirdTermH')
 
+// for each course when clicked , remove it from the previous group and put it to the next one , coursesSelected and hours 
 courses.forEach(course => {
     course.style.backgroundColor ='rgb(255, 255, 255)'
     course.addEventListener('click',changeColor =>{
@@ -40,68 +45,74 @@ courses.forEach(course => {
        const i = course.querySelector('h2').innerText
        const indexOfCourse = coursesSelected['notYetCourses'].indexOf(i)
         if (course.style.backgroundColor == colors[0]){
+
+            course.style.backgroundColor = colors[1]
+
             coursesSelected['notYetCourses'].splice(indexOfCourse,1)
             coursesSelected['finishedCourses'].push(i)
 
 
-            course.style.backgroundColor = colors[1]
+            
             two = checkForHours(course , hours.notYetHours , hours.finishedHours)
             hours.notYetHours = two[0]
             hours.finishedHours = two[1]
 
         }
         else if(course.style.backgroundColor == colors[1] ){
+
             course.style.backgroundColor = colors[2]
+
             coursesSelected['finishedCourses'].splice(coursesSelected['finishedCourses'].indexOf(i),1)
             coursesSelected['termOneCourses'].push(i)
+
             two = checkForHours(course , hours.finishedHours , hours.firstTermHours)
             hours.finishedHours=two[0]
             hours.firstTermHours = two[1]
-
-
             
         }
         else if(course.style.backgroundColor == colors[2] ){
+
             course.style.backgroundColor = colors[3]
+
             coursesSelected['termOneCourses'].splice(coursesSelected['termOneCourses'].indexOf(i),1)
             coursesSelected['termTwoCourses'].push(i)
+
             two = checkForHours(course , hours.firstTermHours , hours.secondeTermHours)
             hours.firstTermHours = two[0]
             hours.secondeTermHours = two[1]
-
-            
         }
         else if(course.style.backgroundColor == colors[3] ){
+
             course.style.backgroundColor = colors[4]
+
             coursesSelected['termTwoCourses'].splice(coursesSelected['termTwoCourses'].indexOf(i),1)
             coursesSelected['termThreeCourses'].push(i)
+
             two = checkForHours(course , hours.secondeTermHours , hours.thirdTermHours)
             hours.secondeTermHours = two[0]
             hours.thirdTermHours = two[1]
-
-           
         }
         else if(course.style.backgroundColor == colors[4] ){
+
             course.style.backgroundColor = colors[0]
+
             coursesSelected['termThreeCourses'].splice(coursesSelected['termThreeCourses'].indexOf(i),1)
             coursesSelected['notYetCourses'].push(i)
+
             two = checkForHours(course , hours.thirdTermHours , hours.notYetHours)
             hours.thirdTermHours = two[0]
             hours.notYetHours = two[1]
-
-
         }
-        
+
         notYetH.innerText = hours.notYetHours
         finishedH.innerText = hours.finishedHours
         firstTermH.innerText = hours.firstTermHours
         secondeTermH.innerText = hours.secondeTermHours
         thirdTermH.innerText = hours.thirdTermHours
-
-    
     }) 
 })
 
+// selecting the term to display the year
 const year = document.querySelector('#years')
 const firstTerm = document.querySelector('#firstTerm')
 const secondTerm = document.querySelector('#secondTerm')
@@ -117,7 +128,7 @@ function changeTerm(){
     thirdTerm.textContent =  arrYear + 3
    
 }
-
+// check for the houres of the course
 function checkForHours(course , from , to){
     if(course.classList.contains('fourPoints')){
         to += 4
@@ -139,14 +150,15 @@ function checkForHours(course , from , to){
     return [from , to]
 }
 
+// hide turtorial
 document.querySelector('#tutorialButton').addEventListener('click',hideContent =>{
     document.querySelector('.tutorial').style.display = 'none'
 
 })
 
 
+// html 2 canvas to download img
 let imgButton = document.querySelector('#exportImg')
-
 imgButton.addEventListener('click' ,()=>{
 
     const elementToSave = document.querySelector(".gridContainer");
@@ -163,6 +175,7 @@ imgButton.addEventListener('click' ,()=>{
             })})
 
 
+// producing a pdf using jspdf
 let pdfButton = document.querySelector('#exportPdf')
 
 pdfButton.addEventListener('click' , makePdf)
@@ -171,8 +184,8 @@ var textLiner1 = 2
 var textLiner2 = 10
 var textLiner3 = 15
 
-async function makePdf(){
-    const newDoc = await new jsPDF()
+function makePdf(){
+    const newDoc =  new jsPDF()
     pdfWrite(newDoc,'termOneCourses' , 'first term' , 'firstTermHours' , textLiner1 )
   
     pdfWrite(newDoc,'termTwoCourses' , 'second term' , 'secondeTermHours' , textLiner2)
@@ -185,12 +198,10 @@ async function makePdf(){
     
     pdfWrite(newDoc,'notYetCourses' , 'not yet courses' , 'notYetHours')
     
-    
-
     newDoc.save('new.pdf')
 }
 
-
+// check the course hours from the dom
 function findHour(course){
     let coursePdf = Array.from(courses).find(x=> x.querySelector('h2').innerText === `${course}`)
     let hour = 0
@@ -208,7 +219,10 @@ function findHour(course){
     }
     return hour
 }
-async function pdfWrite(pdfName , term ,headerText , termHours , textLiner = 2 ){
+
+
+// pdf design function
+function pdfWrite(pdfName , term ,headerText , termHours , textLiner = 2 ){
     
     let j = 10
     pdfName.text(`${headerText} : ` , 10 ,textLiner*10)
@@ -229,6 +243,7 @@ async function pdfWrite(pdfName , term ,headerText , termHours , textLiner = 2 )
     pdfName.text(`sum of hours = ${hours[termHours]} ` ,10,10*(textLiner+1))
     
 }
+// function for downloading the img
 function saveAs(uri, filename) {
     var link = document.createElement('a');
     if (typeof link.download === 'string') {

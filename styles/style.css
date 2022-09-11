@@ -270,7 +270,7 @@ div h2{
     color: rgb(170, 5, 5);
 }
 li{
-    font-size: 18px;
+    font-size: 1.4rem;
     margin-bottom: 5px;
 }
 .borderTop{
@@ -370,7 +370,7 @@ li{
         width: 80%;
         height: 100%;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(40 , 30px);
+        grid-template-rows: 50px 30px;
         grid-auto-rows: 30px;
 
         grid-template-areas: 
@@ -388,7 +388,6 @@ li{
         'ise291   coe292'
         'swe206   swe216'
         'ics202   ics253'
-        'filler12 filler13'
         'chem101  coe233'
         'ias212   filler17'
         'termH3   termH4'
@@ -409,7 +408,6 @@ li{
         'xxx1     xxx2'        
         'xxx3     xxx4'
         'swe439   filler6'
-        'filler8  filler9'
         'swe411   swe412'
         'filler16 ics433'
         'gsxxx    filler19'
@@ -417,32 +415,11 @@ li{
         'appendex appendex';
     
     };
-    *{
-        font-size: 1rem;
-    }
-    div h2 {
-        font-size: 1rem;
-    }
-    .info h2  {
-        font-size: 1.4rem;
-    }
 
     html{
         font-size: 40%;
     }
-    
-    #years{
-        font-size: 1.4rem;
-    } */
-    .tutorial > h1 , .tutorial > h2 {
-        font-size: 1.4rem;
-    }
-    .tutorial > li {
-        font-size: 1rem;
-    }
-    .appedexFlex *{
-        font-size: 1rem;
-    }
+
     .appendexColor{
         display: inline-block;
         height: 10px;
@@ -453,17 +430,8 @@ li{
     .button-23{
         font-size:1.5rem ;
     }
-
+    #header{
+        font-size: 3rem ;
+    }
 }
 
-/* big screens */
-@media screen and (min-width :641px ) {
-    *{
-        font-size: 1.6rem;
-    }
-    div h2 {
-        font-size: 1.6rem;
-    }
-
-
-}
