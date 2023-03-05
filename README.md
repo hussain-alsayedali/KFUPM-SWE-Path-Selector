@@ -3,7 +3,7 @@ making the schudeal for the software engineering major in KFUPM in fast clean wa
 
 **Link to project:** https://hussain-alsayedali.github.io/KFUPM-SWE-Path-Selector/
 
-<img src="./screenShot.png" />
+<img src="./screenshot.png" />
 
 ## How It's Made:
 
